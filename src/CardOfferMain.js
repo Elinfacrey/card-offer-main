@@ -55,13 +55,20 @@ export class CardOfferMain extends LitElement {
     ];
   }
 
+  
+  Continuar(event) {
+    this.dispatchEvent(new CustomEvent('continue-clicked', { bubbles: true, composed: true}));
+    console.log("Probando evento continuar",event)
+  }
+
+
   // Define a template
   render() {
     return html`
      <div class="card-offer-main">
        <div class="row">
            ${this.items.map((i) => html`
-       <bbva-web-card-product  image="${i.imagen}"    preheading="Nuevo" heading="${i.nombre}" subheading="${i.cantidad}"    button-text="Comprar" link-text="Envìo gratis">
+       <bbva-web-card-product  image="${i.imagen}"    preheading="Nuevo" heading="${i.nombre}" subheading="${i.cantidad}"    button-text="Comprar" link-text="Envìo gratis" @button-click=${this.Continuar}>
  
        </bbva-web-card-product>
        `)}

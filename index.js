@@ -1,0 +1,1 @@
+export { CardOfferMain } from './src/CardOfferMain.js';
